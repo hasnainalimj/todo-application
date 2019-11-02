@@ -97,7 +97,21 @@ deleteTodo = () => {
   }
 };
 
+getSingleTodo = () => {
+  const todoId = "5dbd9221d37f110024cb9da5";
+  try {
+    fetch(`${BASE_URL}/todo/${todoId}`)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+  } catch (error) {}
+};
+
 // getTodos();
 //addTodo();
 // updateTodo();
 //deleteTodo();
+// getSingleTodo();
