@@ -76,6 +76,28 @@ updateTodo = () => {
   }
 };
 
+deleteTodo = () => {
+  const deletedId = "5dbd8b2cd37f110024cb9da2";
+  const options = {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json"
+    }
+  };
+  try {
+    fetch(`${BASE_URL}/todo/${deletedId}`, options)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      });
+  } catch (error) {
+    console.log("error while deleting todo", error);
+  }
+};
+
 // getTodos();
 //addTodo();
 // updateTodo();
+//deleteTodo();
