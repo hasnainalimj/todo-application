@@ -44,5 +44,38 @@ addTodo = () => {
   }
 };
 
+updateTodo = () => {
+  const updatedId = "5dbd8b2cd37f110024cb9da2";
+  const payload = {
+    date: "17-05-1995 12:00AM",
+    description: "I love Javascript",
+    isDelete: false,
+    status: "done",
+    title: "JavaScript",
+    type: "JS"
+  };
+
+  const options = {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  };
+
+  try {
+    fetch(`${BASE_URL}/todo/${updatedId}`, options)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log("data", data);
+      });
+  } catch (error) {
+    console.log("error while updating todo", error);
+  }
+};
+
 // getTodos();
 //addTodo();
+// updateTodo();
